@@ -42,6 +42,11 @@ class TR
 	{
 		return 0 < count($this->cells);
 	}
+	
+	public function countCells() 
+	{
+		return count($this->cells);
+	}
 }
 
 
