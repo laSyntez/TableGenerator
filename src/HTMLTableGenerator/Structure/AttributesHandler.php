@@ -30,6 +30,11 @@ class AttributesHandler
 		}
 	}
 	
+	public function getAttributes()
+	{
+		return $this->attributes;
+	}
+	
 	public function generate()
 	{	
 		$output = '';

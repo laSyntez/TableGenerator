@@ -45,6 +45,11 @@ class Table
 	{
 		$this->attributesHandlder->setAttributes($attributes);
 	}
+	
+	public function getAttributes()
+	{
+		return $this->attributes->getAttributes();
+	}
 }
 
 

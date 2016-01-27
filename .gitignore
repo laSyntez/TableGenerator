@@ -2,3 +2,5 @@
 /*.php
 /*.html
 /*~
+src/HTMLTableGenerator/Structure/*~
+src/HTMLTableGenerator/Exception/*~

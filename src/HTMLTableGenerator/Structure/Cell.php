@@ -10,19 +10,21 @@ abstract class Cell
 	protected $content;
 	protected $colspan;
 	protected $rowspan;
-	protected $width;
-	protected $height;
+	protected $width = -1;
+	protected $height = -1;
+	protected $attributesHandlder;
 	
 	const WIDTH_UNDEFINED = -1;
 	const HEIGHT_UNDEFINED = -1;
 	
-	public function __construct($content, $colspan = 1, $rowspan = 1, $width = -1, $height = -1) 
+	public function __construct($content, $colspan = 1, $rowspan = 1, $width = -1, $height = -1, array $attributes = array()) 
 	{
 		$this->setContent($content);
 		$this->setColspan($colspan);
 		$this->setRowspan($rowspan);
 		$this->setWidth($width);
 		$this->setHeight($height);
+		$this->attributesHandlder = new AttributesHandler($attributes);
 	}
 	
 	public function setContent($content)
@@ -74,6 +76,15 @@ abstract class Cell
 	
 	public function getHeight() { return $this->height; }
 	
+	public function setAttributes(array $attributes) 
+	{
+		$this->attributesHandlder->setAttributes($attributes);
+	}
+	
+	public function getAttributes()
+	{
+		return $this->attributes->getAttributes();
+	}
 	
 	abstract public function generate();
 }

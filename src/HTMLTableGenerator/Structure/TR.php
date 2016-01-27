@@ -11,6 +11,7 @@ class TR
 		$this->cells = $cells;
 		$this->attributesHandlder = new AttributesHandler($attributes);
 	}
+	
 	public function addCell(Cell $cell) 
 	{
 		$this->cells[] = $cell;
@@ -46,6 +47,16 @@ class TR
 	public function countCells() 
 	{
 		return count($this->cells);
+	}
+	
+	public function setAttributes(array $attributes) 
+	{
+		$this->attributesHandlder->setAttributes($attributes);
+	}
+	
+	public function getAttributes()
+	{
+		return $this->attributes->getAttributes();
 	}
 }
 
