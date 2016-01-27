@@ -6,6 +6,11 @@ class THCell extends Cell
 {	
 	public function generate()
 	{
+		$output = '<th';		
+		if (null != $this->attributesHandlder) {
+			$output .= $this->attributesHandlder->generate();		
+		}
+		
 		$styleContent = '';
 		if ($this->width != self::WIDTH_UNDEFINED) {
 			$styleContent .= 'width: '.$this->width.'px;';
@@ -13,10 +18,14 @@ class THCell extends Cell
 		if ($this->height != self::HEIGHT_UNDEFINED) {
 			$styleContent .= 'height: '.$this->height.'px;';
 		}
-		return '' == $styleContent
-			? '<th colspan="'.$this->colspan.'" rowspan="'.$this->rowspan.'">' .$this->content. '</th>'
-			: '<th colspan="'.$this->colspan.'" rowspan="'.$this->rowspan.'"><div style="'.$styleContent.'">' .$this->content. '</div></th>'
+		
+		$output .= ' colspan="'.$this->colspan.'" rowspan="'.$this->rowspan.'">';
+		$output .= '' == $styleContent
+			? $this->content. '</th>'
+			: '<div style="'.$styleContent.'">' .$this->content. '</div></th>'
 		;
+		
+		return $output;
 	}
 }
 

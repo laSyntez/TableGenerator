@@ -5,9 +5,13 @@ namespace HTMLTableGenerator\Structure;
 class TDCell extends Cell
 {	
 	public function generate()
-	{
+	{		
+		$output = '<td';		
+		if (null != $this->attributesHandlder) {
+			$output .= $this->attributesHandlder->generate();		
+		}
+		
 		$styleContent = '';
-		//var_dump($this->width);die;
 		if ($this->width != self::WIDTH_UNDEFINED) {
 			$styleContent .= 'width: '.$this->width.'px;';
 		}
@@ -15,14 +19,10 @@ class TDCell extends Cell
 			$styleContent .= 'height: '.$this->height.'px;';
 		}
 		
-		$output = '<td';
-		if (null != $this->attributesHandlder) {
-			$output .= $this->attributesHandlder->generate();		
-		}
-		
-		$output .= ('' == $styleContent)
-			? ' colspan="'.$this->colspan.'" rowspan="'.$this->rowspan.'">' .$this->content. '</td>'
-			: ' colspan="'.$this->colspan.'" rowspan="'.$this->rowspan.'"><div style="'.$styleContent.'">' .$this->content. '</div></td>'
+		$output .= ' colspan="'.$this->colspan.'" rowspan="'.$this->rowspan.'">';
+		$output .= '' == $styleContent
+			? $this->content. '</td>'
+			: '<div style="'.$styleContent.'">' .$this->content. '</div></td>'
 		;
 		
 		return $output;
