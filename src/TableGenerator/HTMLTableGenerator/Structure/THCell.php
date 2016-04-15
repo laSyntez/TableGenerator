@@ -1,6 +1,6 @@
 <?php
 
-namespace HTMLTableGenerator\Structure;
+namespace TableGenerator\HTMLTableGenerator\Structure;
 
 class THCell extends Cell
 {	

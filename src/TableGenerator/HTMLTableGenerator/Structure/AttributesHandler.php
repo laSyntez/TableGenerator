@@ -1,8 +1,8 @@
 <?php
 
-namespace HTMLTableGenerator\Structure;
+namespace TableGenerator\HTMLTableGenerator\Structure;
 
-use HTMLTableGenerator\Exception\InvalidAttributeException;
+use TableGenerator\HTMLTableGenerator\Exception\InvalidAttributeException;
 
 class AttributesHandler
 {	
@@ -38,6 +38,7 @@ class AttributesHandler
 	public function generate()
 	{	
 		$output = '';
+		
 		if (null != $this->attributes) {
 			$output .= ' ';
 			$i = 1;
@@ -48,6 +49,7 @@ class AttributesHandler
 				$i++;
 			}
 		}
+		
 		return $output;
 	}
 }

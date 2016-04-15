@@ -1,9 +1,9 @@
 <?php
 
-namespace HTMLTableGenerator\Structure;
+namespace TableGenerator\HTMLTableGenerator\Structure;
 
-use HTMLTableGenerator\Exception\InvalidColspanException;
-use HTMLTableGenerator\Exception\InvalidRowspanException;
+use TableGenerator\HTMLTableGenerator\Exception\InvalidColspanException;
+use TableGenerator\HTMLTableGenerator\Exception\InvalidRowspanException;
 
 abstract class Cell 
 {

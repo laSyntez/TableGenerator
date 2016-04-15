@@ -1,17 +1,17 @@
 <?php
 
-namespace HTMLTableGenerator\Structure;
+namespace TableGenerator\HTMLTableGenerator\Structure;
 
-use HTMLTableGenerator\Exception\InvalidAttributeException;
+use TableGenerator\HTMLTableGenerator\Exception\InvalidAttributeException;
 
 class Table
 {	
 	protected $rows = array();
 	protected $attributesHandlder;
 
-	public function __construct(array $rows = array(), array $attributes = array()) {
+	public function __construct(array $rows = array(), AttributesHandler $handler = null) {
 		$this->rows = $rows;
-		$this->attributesHandlder = new AttributesHandler($attributes);
+		$this->attributesHandlder = $handler;
 	}
 	
 	public function addRow(TR $tr) 
@@ -48,7 +48,17 @@ class Table
 	
 	public function getAttributes()
 	{
-		return $this->attributes->getAttributes();
+		return $this->attributesHandlder->getAttributes();
+	}
+	
+	public function setAttributesHandler(array $handler) 
+	{
+		$this->attributesHandlder = $handler;
+	}
+	
+	public function getAttributesHandler()
+	{
+		return $this->attributesHandlder;
 	}
 }
 

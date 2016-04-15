@@ -1,12 +1,12 @@
 <?php
 
-namespace HTMLTableGenerator\Structure;
+namespace TableGenerator\HTMLTableGenerator\Structure;
 
-class TDCell extends Cell
+class THCell extends Cell
 {	
 	public function generate()
-	{		
-		$output = '<td';		
+	{
+		$output = '<th';		
 		if (null != $this->attributesHandlder) {
 			$output .= $this->attributesHandlder->generate();		
 		}
@@ -21,8 +21,8 @@ class TDCell extends Cell
 		
 		$output .= ' colspan="'.$this->colspan.'" rowspan="'.$this->rowspan.'">';
 		$output .= '' == $styleContent
-			? $this->content. '</td>'
-			: '<div style="'.$styleContent.'">' .$this->content. '</div></td>'
+			? $this->content. '</th>'
+			: '<div style="'.$styleContent.'">' .$this->content. '</div></th>'
 		;
 		
 		return $output;
