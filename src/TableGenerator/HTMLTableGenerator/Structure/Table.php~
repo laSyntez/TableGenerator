@@ -44,6 +44,8 @@ class Table
 	public function setAttributes(array $attributes) 
 	{
 		$this->attributesHandlder->setAttributes($attributes);
+		
+		return $this;
 	}
 	
 	public function getAttributes()
@@ -51,9 +53,11 @@ class Table
 		return $this->attributesHandlder->getAttributes();
 	}
 	
-	public function setAttributesHandler(AttributesHandler$handler) 
+	public function setAttributesHandler(AttributesHandler $handler) 
 	{
 		$this->attributesHandlder = $handler;
+		
+		return $this;
 	}
 	
 	public function getAttributesHandler()
