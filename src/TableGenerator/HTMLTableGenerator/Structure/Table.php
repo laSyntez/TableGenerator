@@ -51,7 +51,7 @@ class Table
 		return $this->attributesHandlder->getAttributes();
 	}
 	
-	public function setAttributesHandler(AttributesHandler$handler) 
+	public function setAttributesHandler(AttributesHandler $handler) 
 	{
 		$this->attributesHandlder = $handler;
 	}

@@ -4,12 +4,12 @@ namespace TableGenerator\HTMLTableGenerator\Structure;
 
 class TR
 {		
-	protected $cells = array();
+	protected $cells;
 	protected $attributesHandlder;
 
-	public function __construct(array $cells = array(), array $attributes = array()) {
+	public function __construct(array $cells = array(), AttributesHandler $handler = null) {
 		$this->cells = $cells;
-		$this->attributesHandlder = new AttributesHandler($attributes);
+		$this->attributesHandlder = $handler;
 	}
 	
 	public function addCell(Cell $cell) 
@@ -57,6 +57,16 @@ class TR
 	public function getAttributes()
 	{
 		return $this->attributes->getAttributes();
+	}
+	
+	public function setAttributesHandler(AttributesHandler $handler) 
+	{
+		$this->attributesHandlder = $handler;
+	}
+	
+	public function getAttributesHandler()
+	{
+		return $this->attributesHandlder;
 	}
 }
 
