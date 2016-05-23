@@ -7,7 +7,7 @@ Object Oriented PHP library to generate HTML tables
 ### Requirements
 
  * PHP 5.3+
- 
+
 ### Installation
 
 ```cli
@@ -45,7 +45,7 @@ $generator->setOutputPath('output/saturn.jpg')
 /* OR */
 
 $generator = new AndroidBitmapGenerator('images/neptune.jpg', 'output/saturn.jpg');
-$generator->execute(); 
+$generator->execute();
 
 ```
 
@@ -67,7 +67,7 @@ The reference size which refers to the highest density can be set either via the
 <?php
 
 $generator = new AndroidBitmapGenerator('images/neptune.jpg', null, 400, 300);
-$generator->execute(); 
+$generator->execute();
 
 /* OR */
 
@@ -92,7 +92,7 @@ $generator->setImagePath(__DIR__.'/images/mars.jpg')
 		  ->execute();
 ```
 
-Two compression types are supported : 
+Two compression types are supported :
 - png (default one)
 - jpeg
 
@@ -119,4 +119,3 @@ $generator = new AndroidBitmapGenerator('/images/neptune.jpg');
 ### License
 
 MIT License. See the [file](./LICENSE.md)
-
