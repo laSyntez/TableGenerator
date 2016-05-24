@@ -5,6 +5,7 @@ namespace TableGenerator\HTMLTableGenerator\Structure;
 use TableGenerator\HTMLTableGenerator\Exception\InvalidColspanException;
 use TableGenerator\HTMLTableGenerator\Exception\InvalidRowspanException;
 use TableGenerator\HTMLTableGenerator\Exception\InvalidSizeException;
+use TableGenerator\GeneratorInterface;
 
 abstract class Cell
 {

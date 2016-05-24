@@ -3,33 +3,50 @@
 namespace TableGenerator\HTMLTableGenerator\Structure;
 
 use TableGenerator\HTMLTableGenerator\Exception\InvalidAttributeException;
+use TableGenerator\Storage\StorageInterface;
 
-class Table extends \SplObjectStorage
+class Table
 {
-	protected $rows = array();
+	protected $storage;
 	protected $attributesHandlder;
 
-	public function __construct(array $rows = array(), AttributesHandler $handler = null)
+	public function __construct(StorageInterface $storage, AttributesHandler $handler = null)
 	{
-		$this->rows = $rows;
+		$this->storage = $storage;
 		$this->attributesHandlder = $handler;
 	}
 
 	public function addRow(TR $tr)
 	{
-		$this->rows[] = $tr;
-		/*$this->attach($tr);
-        echo '<pre>';
-	    var_dump($this->getAll());die;
-        echo '</pre>';
-        */
+		$this->storage->attach($tr);
 
 		return $this;
 	}
 
-	public function removeRow(row $row)
+	public function removeRow(TR $tr)
 	{
-		$this->rows[] = $row;
+		$this->storage->detach($tr);
+
+		return $this;
+	}
+
+	public function addRows(array $rows)
+	{
+		foreach ($rows as $tr) {
+			$this->storage->attach($tr);
+		}
+
+		return $this;
+	}
+
+	public function getRows()
+	{
+		return $this->storage->getAll();
+	}
+
+	public function countRows()
+	{
+		return $this->storage->count();
 	}
 
 	public function generate()
@@ -39,7 +56,8 @@ class Table extends \SplObjectStorage
 			$output .= $this->attributesHandlder->generate();
 		}
 		$output .= '>';
-		foreach ($this->rows as $row) {
+		$rows = $this->getRows();
+		foreach ($rows as $row) {
 			$output.= $row->generate();
 		}
 		$output .= '</table>';
