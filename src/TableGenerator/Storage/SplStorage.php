@@ -10,4 +10,13 @@ class SplStorage extends \SplObjectStorage implements StorageInterface
     {
         return $this;
     }
+
+    public function attachAll(array $elements)
+    {
+        foreach ($elements as $element) {
+            $this->attach($element);
+        }
+
+        return $this;
+    }
 }

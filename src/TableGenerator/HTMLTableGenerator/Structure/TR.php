@@ -4,12 +4,21 @@ namespace TableGenerator\HTMLTableGenerator\Structure;
 
 use TableGenerator\GeneratorInterface;
 use TableGenerator\Storage\StorageInterface;
+use TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler;
 
 class TR
 {
 	protected $storage;
 	protected $attributesHandlder;
 
+	/**
+	 * Get the html code of the cell
+	 *
+	 * @param StorageInterface $storage
+	 * @param AttributesHandler $handler
+	 *
+	 * @return string
+	 */
 	public function __construct(StorageInterface $storage, AttributesHandler $handler = null)
 	{
 		$this->storage = $storage;
@@ -32,9 +41,7 @@ class TR
 
 	public function addCells(array $cells)
 	{
-		foreach ($cells as $cell) {
-			$this->storage->attach($cell);
-		}
+		$this->storage->attachAll($cells);
 
 		return $this;
 	}

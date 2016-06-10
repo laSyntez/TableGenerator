@@ -1,44 +1,44 @@
 <?php
 
-namespace TableGenerator\HTMLTableGenerator\Structure;
+namespace TableGenerator\HTMLTableGenerator\Attributes;
 
 use TableGenerator\HTMLTableGenerator\Exception\InvalidAttributeException;
 
 class AttributesHandler
-{	
+{
 	protected $attributes;
 
 	const ID_ATTRIBUTE = 'id';
 	const CLASS_ATTRIBUTE = 'class';
 	const STYLE_ATTRIBUTE = 'style';
-		
-	public function __construct($attributes) 
+
+	public function __construct($attributes)
 	{
 		$this->setAttributes($attributes);
 	}
-	
-	public function setAttributes(array $attributes) 
+
+	public function setAttributes(array $attributes)
 	{
 		if (null != $attributes) {
 			foreach ($attributes as $k => $value) {
 				if (!in_array($k, array(self::ID_ATTRIBUTE, self::CLASS_ATTRIBUTE, self::STYLE_ATTRIBUTE))) {
-					throw new InvalidAttributeException('Invalid attribute. The values allowed are "id", "class" or "style".');
+					throw new InvalidAttributeException('Invalid attribute name. The values allowed are "id", "class" or "style".');
 				}
 			}
-			
+
 			$this->attributes = $attributes;
 		}
 	}
-	
+
 	public function getAttributes()
 	{
 		return $this->attributes;
 	}
-	
+
 	public function generate()
-	{	
+	{
 		$output = '';
-		
+
 		if (null != $this->attributes) {
 			$output .= ' ';
 			$i = 1;
@@ -49,9 +49,7 @@ class AttributesHandler
 				$i++;
 			}
 		}
-		
+
 		return $output;
 	}
 }
-
-

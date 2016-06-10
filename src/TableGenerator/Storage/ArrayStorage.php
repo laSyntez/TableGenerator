@@ -30,4 +30,13 @@ class ArrayStorage implements StorageInterface
     {
         return count($this->storage);
     }
+
+    public function attachAll(array $elements)
+    {
+        foreach ($elements as $element) {
+            $this->attach($element);
+        }
+
+        return $this;
+    }
 }

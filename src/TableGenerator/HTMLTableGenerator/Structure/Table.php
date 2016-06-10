@@ -2,6 +2,7 @@
 
 namespace TableGenerator\HTMLTableGenerator\Structure;
 
+use TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler;
 use TableGenerator\HTMLTableGenerator\Exception\InvalidAttributeException;
 use TableGenerator\Storage\StorageInterface;
 
@@ -32,9 +33,7 @@ class Table
 
 	public function addRows(array $rows)
 	{
-		foreach ($rows as $tr) {
-			$this->storage->attach($tr);
-		}
+		$this->storage->attachAll($rows);
 
 		return $this;
 	}
