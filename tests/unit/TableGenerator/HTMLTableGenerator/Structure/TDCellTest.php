@@ -1,7 +1,7 @@
 <?php
 
 use TableGenerator\HTMLTableGenerator\Structure\TDCell;
-use TableGenerator\HTMLTableGenerator\Structure\AttributesHandler;
+use TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler;
 
 class TDCellTest extends PHPUnit_Framework_TestCase
 {

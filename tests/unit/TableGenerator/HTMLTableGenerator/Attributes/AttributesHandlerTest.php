@@ -1,6 +1,6 @@
 <?php
 
-use TableGenerator\HTMLTableGenerator\Structure\AttributesHandler;
+use TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler;
 
 class AttributesHandlerTest extends PHPUnit_Framework_TestCase
 {

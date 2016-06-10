@@ -1,19 +1,19 @@
 <?php
 
-use TableGenerator\HTMLTableGenerator\Structure\TR;
+use TableGenerator\HTMLTableGenerator\Structure\Row;
 use TableGenerator\HTMLTableGenerator\Structure\THCell;
 use TableGenerator\HTMLTableGenerator\Structure\TDCell;
 use TableGenerator\HTMLTableGenerator\Structure\Attributes;
-use TableGenerator\HTMLTableGenerator\Structure\AttributesHandler;
+use TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler;
 use TableGenerator\Storage\ArrayStorage;
 
-class TRTest extends PHPUnit_Framework_TestCase
+class RowTest extends PHPUnit_Framework_TestCase
 {
     private $tr;
 
     public function setUp()
     {
-        $this->tr = new TR(new ArrayStorage);
+        $this->tr = new Row(new ArrayStorage);
     }
 
     public function testGetAttributesHandler()

@@ -2,8 +2,8 @@
 
 use TableGenerator\HTMLTableGenerator\Structure\Table;
 use TableGenerator\HTMLTableGenerator\Structure\TDCell;
-use TableGenerator\HTMLTableGenerator\Structure\AttributesHandler;
-use TableGenerator\HTMLTableGenerator\Structure\TR;
+use TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler;
+use TableGenerator\HTMLTableGenerator\Structure\Row;
 use TableGenerator\Storage\SplStorage;
 use TableGenerator\Storage\ArrayStorage;
 
@@ -34,8 +34,8 @@ class TableTest extends PHPUnit_Framework_TestCase
 
     public function rowsProvider()
     {
-        $tr = new TR(new ArrayStorage);
-        $tr2 = new TR(new ArrayStorage);
+        $tr = new Row(new ArrayStorage);
+        $tr2 = new Row(new ArrayStorage);
         $tr2->addCells(array(new TDCell('mars')));
         return array(
             array(
@@ -72,16 +72,16 @@ class TableTest extends PHPUnit_Framework_TestCase
             array(0, array()),
             array(2,
                 array(
-                    new TR($storage),
-                    new TR($storage),
+                    new Row($storage),
+                    new Row($storage),
                 )
             ),
             array(4,
                 array(
-                    new TR($storage),
-                    new TR($storage),
-                    new TR($storage),
-                    new TR($storage),
+                    new Row($storage),
+                    new Row($storage),
+                    new Row($storage),
+                    new Row($storage),
                 )
             ),
         );

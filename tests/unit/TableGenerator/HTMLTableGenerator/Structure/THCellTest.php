@@ -1,7 +1,7 @@
 <?php
 
 use TableGenerator\HTMLTableGenerator\Structure\THCell;
-use TableGenerator\HTMLTableGenerator\Structure\AttributesHandler;
+use TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler;
 
 class THCellTest extends PHPUnit_Framework_TestCase
 {
