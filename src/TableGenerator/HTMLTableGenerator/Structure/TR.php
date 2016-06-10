@@ -6,7 +6,7 @@ use TableGenerator\GeneratorInterface;
 use TableGenerator\Storage\StorageInterface;
 use TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler;
 
-class TR
+class Row
 {
 	protected $storage;
 	protected $attributesHandlder;
@@ -72,6 +72,13 @@ class TR
 		return $output;
 	}
 
+	/**
+	 * Set the attributes of the row
+	 *
+	 * @param array $attributes
+	 *
+	 * @return Row
+	 */
 	public function setAttributes(array $attributes)
 	{
 		$this->attributesHandlder->setAttributes($attributes);
@@ -79,11 +86,23 @@ class TR
 		return $this;
 	}
 
+	/**
+	 * Get the attributes of the row
+	 *
+	 * @return array
+	 */
 	public function getAttributes()
 	{
 		return $this->attributes->getAttributes();
 	}
 
+	/**
+	 * Set the attributes handler of the row
+	 *
+	 * @param \TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler $handler
+	 *
+	 * @return Row
+	 */
 	public function setAttributesHandler(AttributesHandler $handler)
 	{
 		$this->attributesHandlder = $handler;

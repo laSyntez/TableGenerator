@@ -2,64 +2,72 @@
 
 namespace TableGenerator\HTMLTableGenerator\Structure;
 
-use TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler;
-use TableGenerator\HTMLTableGenerator\Exception\InvalidAttributeException;
+use TableGenerator\GeneratorInterface;
 use TableGenerator\Storage\StorageInterface;
+use TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler;
 
-class Table
+class Row
 {
 	protected $storage;
 	protected $attributesHandlder;
 
+	/**
+	 * Get the html code of the cell
+	 *
+	 * @param StorageInterface $storage
+	 * @param AttributesHandler $handler
+	 *
+	 * @return string
+	 */
 	public function __construct(StorageInterface $storage, AttributesHandler $handler = null)
 	{
 		$this->storage = $storage;
 		$this->attributesHandlder = $handler;
 	}
 
-	public function addRow(Row $tr)
+	public function addCell(Cell $cell)
 	{
-		$this->storage->attach($tr);
+		$this->storage->attach($cell);
 
 		return $this;
 	}
 
-	public function removeRow(Row $tr)
+	public function removeCell(Cell $cell)
 	{
-		$this->storage->detach($tr);
+		$this->storage->detach($cell);
 
 		return $this;
 	}
 
-	public function addRows(array $rows)
+	public function addCells(array $cells)
 	{
-		$this->storage->attachAll($rows);
+		$this->storage->attachAll($cells);
 
 		return $this;
 	}
 
-	public function getRows()
+	public function getCells()
 	{
 		return $this->storage->getAll();
 	}
 
-	public function countRows()
+	public function countCells()
 	{
 		return $this->storage->count();
 	}
 
 	public function generate()
 	{
-		$output = '<table';
+		$output = '<tr';
 		if (null != $this->attributesHandlder) {
 			$output .= $this->attributesHandlder->generate();
 		}
 		$output .= '>';
-		$rows = $this->getRows();
-		foreach ($rows as $row) {
-			$output.= $row->generate();
+		$cells = $this->getCells();
+		foreach ($cells as $cell) {
+			$output.= $cell->generate();
 		}
-		$output .= '</table>';
+		$output .= '</tr>';
 
 		return $output;
 	}
@@ -73,7 +81,7 @@ class Table
 
 	public function getAttributes()
 	{
-		return $this->attributesHandlder->getAttributes();
+		return $this->attributes->getAttributes();
 	}
 
 	public function setAttributesHandler(AttributesHandler $handler)
