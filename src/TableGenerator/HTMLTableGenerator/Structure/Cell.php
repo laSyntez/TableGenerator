@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the TableGenerator package.
+ *
+ * (c) laSyntez <lasyntez@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace TableGenerator\HTMLTableGenerator\Structure;
 
 use TableGenerator\HTMLTableGenerator\Exception\InvalidColspanException;
@@ -8,25 +17,57 @@ use TableGenerator\HTMLTableGenerator\Exception\InvalidSizeException;
 use TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler;
 use TableGenerator\GeneratorInterface;
 
+/**
+ * Cell represents an HTML Table cell (an HTML tag).
+ *
+ * @author laSyntez <lasyntez@gmail.com>
+ */
 abstract class Cell
 {
+	/**
+	 * @var string
+	 */
 	protected $content;
+
+	/**
+	 * @var int|string
+	 */
 	protected $colspan;
+
+	/**
+	 * @var int|string
+	 */
 	protected $rowspan;
+
+	/**
+	 * @var int|string
+	 */
 	protected $width;
+
+	/**
+	 * @var int|string
+	 */
 	protected $height;
+
+	/**
+	 * The html attributes handler
+	 *
+	 * @var \TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler
+	 */
 	protected $attributesHandlder;
 
 	const WIDTH_UNDEFINED = 0;
 	const HEIGHT_UNDEFINED = 0;
 
 	/**
-	 * @param string $content
-	 * @param int | string $colspan
-	 * @param int | string $rowspan
-	 * @param int | string $width
-	 * @param int | string $height
-	 * @param \TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler $handler
+	 * Constructor.
+	 *
+	 * @param   string   $content   The content
+	 * @param   int|string   $colspan   The colspan
+	 * @param   int|string   $rowspan   The rowspan
+	 * @param   int|string   $width   The width
+	 * @param   int|string   $height   The height
+	 * @param   \TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler   $handler   The html attributes handler
 	 */
 	public function __construct($content, $colspan = 1, $rowspan = 1, $width = 0, $height = 0, AttributesHandler $handler = null)
 	{
@@ -39,7 +80,7 @@ abstract class Cell
 	}
 
 	/**
-	 * Set the content of the cell
+	 * Sets the content of the cell
 	 *
 	 * @param string $content
 	 *
@@ -55,7 +96,7 @@ abstract class Cell
 	}
 
 	/**
-	 * Get the content of the cell
+	 * Gets the content of the cell
 	 *
 	 * @return string
 	 */
@@ -65,11 +106,13 @@ abstract class Cell
 	}
 
 	/**
-	 * Set the colspan value of the cell
+	 * Sets the colspan value of the cell
 	 *
-	 * @param int | string $colspan
+	 * @param int|string $colspan
 	 *
 	 * @return Cell
+	 *
+	 * @throws \TableGenerator\HTMLTableGenerator\Exception\InvalidColspanException If the colspan value is not a number or lesser than 1
 	 */
 	public function setColspan($colspan)
 	{
@@ -83,9 +126,9 @@ abstract class Cell
 	}
 
 	/**
-	 * Get the colspan value of the cell
+	 * Gets the colspan value of the cell
 	 *
-	 * @return int | string
+	 * @return int|string
 	 */
 	public function getColspan()
 	{
@@ -93,11 +136,13 @@ abstract class Cell
 	}
 
 	/**
-	 * Set the rowspan value of the cell
+	 * Sets the rowspan value of the cell
 	 *
-	 * @param int | string $rowspan
+	 * @param int|string $rowspan
 	 *
 	 * @return Cell
+	 *
+	 * @throws \TableGenerator\HTMLTableGenerator\Exception\InvalidRowspanException If the rowspan value is not a number or lesser than 1
 	 */
 	public function setRowspan($rowspan)
 	{
@@ -111,9 +156,9 @@ abstract class Cell
 	}
 
 	/**
-	 * Get the rowspan of the cell
+	 * Gets the rowspan of the cell
 	 *
-	 * @return int | string
+	 * @return int|string
 	 */
 	public function getRowspan()
 	{
@@ -121,11 +166,13 @@ abstract class Cell
 	}
 
 	/**
-	 * Set the width of the cell
+	 * Sets the width of the cell
 	 *
-	 * @param int | string $width
+	 * @param int|string $width
 	 *
 	 * @return Cell
+	 *
+	 * @throws \TableGenerator\HTMLTableGenerator\Exception\InvalidSizeException If the width is not a number or lesser than 0
 	 */
 	public function setWidth($width)
 	{
@@ -139,9 +186,9 @@ abstract class Cell
 	}
 
 	/**
-	 * Get the width of the cell
+	 * Gets the width of the cell
 	 *
-	 * @return int | string
+	 * @return int|string
 	 */
 	public function getWidth()
 	{
@@ -149,11 +196,13 @@ abstract class Cell
 	}
 
 	/**
-	 * Set the height of the cell
+	 * Sets the height of the cell
 	 *
-	 * @param int | string $height
+	 * @param int|string $height
 	 *
 	 * @return Cell
+	 *
+	 * @throws \TableGenerator\HTMLTableGenerator\Exception\InvalidSizeException If the height is not a number or lesser than 0
 	 */
 	public function setHeight($height)
 	{
@@ -167,9 +216,9 @@ abstract class Cell
 	}
 
 	/**
-	 * Get the height of the cell
+	 * Gets the height of the cell
 	 *
-	 * @return int | string
+	 * @return int|string
 	 */
 	public function getHeight()
 	{
@@ -177,7 +226,7 @@ abstract class Cell
 	}
 
 	/**
-	 * Set the attributes of the cell
+	 * Sets the attributes of the cell
 	 *
 	 * @param array $attributes
 	 *
@@ -191,7 +240,7 @@ abstract class Cell
 	}
 
 	/**
-	 * Get the attributes of the cell
+	 * Gets the attributes of the cell
 	 *
 	 * @return array
 	 */
@@ -201,7 +250,7 @@ abstract class Cell
 	}
 
 	/**
-	 * Set the attributes handler of the cell
+	 * Sets the attributes handler of the cell
 	 *
 	 * @param \TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler $handler
 	 *
@@ -215,7 +264,7 @@ abstract class Cell
 	}
 
 	/**
-	 * Get the attributes handler of the cell
+	 * Gets the attributes handler of the cell
 	 *
 	 * @return \TableGenerator\HTMLTableGenerator\Attributes\AttributesHandler
 	 */
@@ -225,7 +274,7 @@ abstract class Cell
 	}
 
 	/**
-	 * Get the html code of the cell
+	 * Generates the html code of the cell
 	 *
 	 * @return string
 	 */
