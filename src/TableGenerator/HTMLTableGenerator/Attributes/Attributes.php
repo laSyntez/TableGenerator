@@ -3,10 +3,10 @@
 namespace TableGenerator\HTMLTableGenerator\Structure;
 
 trait Attributes
-{	
+{
 	protected $attributes;
-	
-	public function setAttributes($attributes) 
+
+	public function setAttributes($attributes)
 	{
 		if (null != $attributes) {
 				foreach ($attributes as $k => $value) {
@@ -14,13 +14,13 @@ trait Attributes
 						throw new InvalidAttributeException('Invalid attribute. The values allowed are "id" or "class".');
 					}
 				}
-				
+
 				$this->attributes = $attributes;
 		}
 	}
-	
+
 	public function generateAttributes()
-	{	
+	{
 		$output = '';
 		if (null != $this->attributes) {
 			$output .= ' ';
@@ -35,5 +35,3 @@ trait Attributes
 		return $output;
 	}
 }
-
-

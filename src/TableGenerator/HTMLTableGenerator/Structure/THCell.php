@@ -3,7 +3,7 @@
 /*
  * This file is part of the TableGenerator package.
  *
- * (c) laSyntez <lasyntez@gmail.com>
+ * (c) laSyntez
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -27,7 +27,7 @@ class THCell extends Cell
 		if ($this->width != self::WIDTH_UNDEFINED) {
 			$styleContent .= 'width: '.$this->width.'px;';
 		}
-		
+
 		if ($this->height != self::HEIGHT_UNDEFINED) {
 			$styleContent .= 'height: '.$this->height.'px;';
 		}

@@ -3,7 +3,7 @@
 /*
  * This file is part of the TableGenerator package.
  *
- * (c) laSyntez <lasyntez@gmail.com>
+ * (c) laSyntez
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -86,7 +86,7 @@ class AttributesHandler
 			foreach ($this->attributes as $k => $value) {
 				$output .= $k.'="'.$value;
 				$output .= $i != $length ? '" ' : '"';
-				
+
 				$i++;
 			}
 		}

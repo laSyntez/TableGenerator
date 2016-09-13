@@ -3,7 +3,7 @@
 /*
  * This file is part of the TableGenerator package.
  *
- * (c) laSyntez <lasyntez@gmail.com>
+ * (c) laSyntez
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -56,6 +56,8 @@ abstract class Cell
 	 */
 	protected $attributesHandlder;
 
+	const COLSPAN_REGULAR = 1;
+	const ROWSPAN_REGULAR = 1;
 	const WIDTH_UNDEFINED = 0;
 	const HEIGHT_UNDEFINED = 0;
 
