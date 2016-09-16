@@ -1,12 +1,2 @@
-/_resources_/
-/*.php
-/*.html
-/*~
-/*.css
-/.htaccess
-src/HTMLTableGenerator/Structure/*~
-src/HTMLTableGenerator/Exception/*~
-tests/coverage/
-
 /vendor/
 composer.lock
