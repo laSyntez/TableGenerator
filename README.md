@@ -113,7 +113,7 @@ To create a cell either a THCell or a TDCell, the content is the first and only 
 
 $td = new TDCell('<a href="planets/pluton.html">Pluton</a>');
 
-/** TO SET A WIDTH OF 300px AND A HEIGHT OF 200px  */
+/** TO SET A WIDTH OF 300px AND A HEIGHT OF 200px */
 $td = new THCell('Pluton', Cell::COLSPAN_REGULAR, Cell::ROWSPAN_REGULAR, 300, 200);
 
 /** TO SET A COLSPAN OF 3 AND A ROWSPAN OF 5 */
