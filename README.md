@@ -1,7 +1,4 @@
-# TableGenerator
-
-[![Build Status](https://travis-ci.org/laSyntez/TableGenerator.svg?branch=master)](https://travis-ci.org/laSyntez/TableGenerator)
-[![DUB](https://img.shields.io/dub/l/vibe-d.svg)](./LICENSE.md)
+# TableGenerator [![Build Status](https://travis-ci.org/laSyntez/TableGenerator.svg?branch=master)](https://travis-ci.org/laSyntez/TableGenerator)
 
 Object Oriented PHP library to generate HTML tables
 
