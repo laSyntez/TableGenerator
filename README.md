@@ -42,9 +42,9 @@ Front end developers should know that creating tables can be tricky sometimes. T
 
 	$tr2 = new Row(new ArrayStorage);
 	$tr2->addCell(new TDCell('Jupiter', 1, 1, Cell::WIDTH_UNDEFINED, Cell::HEIGHT_UNDEFINED))
-        ->addCell(new TDCell('Mars', Cell::COLSPAN_REGULAR, Cell::ROWSPAN_REGULAR))
-	    ->addCell(new TDCell('Pluton', 1, 1))
-    ;
+      ->addCell(new TDCell('Mars', Cell::COLSPAN_REGULAR, Cell::ROWSPAN_REGULAR))
+      ->addCell(new TDCell('Pluton', 1, 1))
+  ;
 
 	$tr3 = new Row(new SplStorage, new AttributesHandler(array('id' => 'orion')));
 	$tr3->addCells(array(
@@ -53,11 +53,11 @@ Front end developers should know that creating tables can be tricky sometimes. T
 		new TDCell('Venus', 1, 1),
 	));
 
-	/** Add the rows to the table individualy  */
+	/** Add the rows to the table individually  */
 	$table->addRow($tr)
-		  ->addRow($tr2)
-		  ->addRow($tr3)
-    ;
+		    ->addRow($tr2)
+	      ->addRow($tr3)
+  ;
 
 	/** Or collectively  */
 	$table->addRows(array($tr2, $tr, $tr3));
@@ -65,7 +65,7 @@ Front end developers should know that creating tables can be tricky sometimes. T
     /** Generate the html code */
 	$html = $table->generate();
 
-    /** Or display it on the web page */
+    /** And display it on the web page */
 	echo $html;
 ```
 
